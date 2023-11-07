@@ -11,7 +11,8 @@ public class MousController : MonoBehaviour
     public float sens = 200f;
     public float rast = 10f;
     float xRotation = 0f;
-
+    public int maney = 100;
+    
     public Transform pointer;
     private GameObject item;
     private bool chek = false;
@@ -32,7 +33,7 @@ public class MousController : MonoBehaviour
         Debug.DrawRay(transform.position, transform.forward * rast, Color.yellow);
 
         RaycastHit hit;
-
+                
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (Physics.Raycast(ray, out hit))
@@ -40,6 +41,16 @@ public class MousController : MonoBehaviour
                 if (hit.collider.CompareTag("Pickup") & chekHand == false)
                 {
                     chek = true;
+                    item = hit.collider.gameObject;
+                    Debug.Log(item.tag);
+                }
+
+                if (hit.collider.CompareTag("PickupPay"))
+                {
+                    chek = true;
+                    item = hit.collider.gameObject;
+                    item.transform.position = new Vector3(0,0,0);
+                    Debug.Log(item.tag);
                 }
 
                 if (hit.collider.CompareTag("Materinka") & chekHand == true)
@@ -50,6 +61,7 @@ public class MousController : MonoBehaviour
                     item.transform.rotation = hit.collider.gameObject.transform.rotation;
                     //item.transform.position = hit.point + Vector3.up * 0.1f;
                     chekHand = false;
+                    Debug.Log(item.tag);
                 }
 
                 else if (hit.collider.CompareTag("Table") & chekHand == true)
@@ -64,6 +76,14 @@ public class MousController : MonoBehaviour
                     item.transform.rotation = hit.collider.gameObject.transform.rotation;
                     item.transform.position = hit.point + Vector3.up * 0.1f;
                     chekHand = false;
+                    Debug.Log(item.tag);
+                }
+
+                if (hit.collider.CompareTag("Pay") & maney >= 60)
+                {
+                    item.tag = "Pickup";
+                    maney -= 50;
+                    Debug.Log(item.tag);
                 }
             }
         }
@@ -85,8 +105,6 @@ public class MousController : MonoBehaviour
 
             if(chek == true)
             {
-                item = hit.collider.gameObject;
-
                 item.transform.parent = hand.transform;
 
                 item.transform.position = hand.transform.position;

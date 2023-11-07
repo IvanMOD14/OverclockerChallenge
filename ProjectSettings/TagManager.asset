@@ -7,6 +7,8 @@ TagManager:
   - Pickup
   - Table
   - Materinka
+  - PickupPay
+  - Pay
   layers:
   - Default
   - TransparentFX
