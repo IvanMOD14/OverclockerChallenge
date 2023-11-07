@@ -46,9 +46,9 @@ public class MousController : MonoBehaviour
                 {
                     item.transform.parent = hit.collider.gameObject.transform;
                     item.GetComponent<Rigidbody>().isKinematic = true;
-                    //item.transform.position = hit.collider.gameObject.transform.position;
+                    item.transform.position = hit.collider.gameObject.transform.position;
                     item.transform.rotation = hit.collider.gameObject.transform.rotation;
-                    item.transform.position = hit.point + Vector3.up * 0.1f;
+                    //item.transform.position = hit.point + Vector3.up * 0.1f;
                     chekHand = false;
                 }
 
@@ -91,7 +91,7 @@ public class MousController : MonoBehaviour
 
                 item.transform.position = hand.transform.position;
 
-                item.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+                //item.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
 
                 item.GetComponent<Rigidbody>().isKinematic = true;
 
