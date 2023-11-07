@@ -18,10 +18,14 @@ public class MousController : MonoBehaviour
     private bool chek = false;
     private bool chekHand = false;
 
+    public Camera camera1;
+    public Camera camera2;
 
     void Start()
     {
         //Cursor.lockState = CursorLockMode.Locked;
+        camera1.enabled = true;
+        camera2.enabled = false;
     }
 
     void Update()
@@ -49,11 +53,11 @@ public class MousController : MonoBehaviour
                 {
                     chek = true;
                     item = hit.collider.gameObject;
-                    item.transform.position = new Vector3(0,0,0);
+                    //item.transform.position = new Vector3(0,0,0);
                     Debug.Log(item.tag);
                 }
 
-                if (hit.collider.CompareTag("Materinka") & chekHand == true)
+                if (hit.collider.CompareTag("Materinka") & chekHand == true & item.tag != "PickupPay")
                 {
                     item.transform.parent = hit.collider.gameObject.transform;
                     item.GetComponent<Rigidbody>().isKinematic = true;
@@ -84,6 +88,12 @@ public class MousController : MonoBehaviour
                     item.tag = "Pickup";
                     maney -= 50;
                     Debug.Log(item.tag);
+                }
+
+                if (hit.collider.CompareTag("Monitor"))
+                {
+                    camera1.enabled = false;
+                    camera2.enabled = true;
                 }
             }
         }
