@@ -26,6 +26,7 @@ public class MousController : MonoBehaviour
         //Cursor.lockState = CursorLockMode.Locked;
         camera1.enabled = true;
         camera2.enabled = false;
+        Debug.Log("1");
     }
 
     void Update()
@@ -42,6 +43,13 @@ public class MousController : MonoBehaviour
         {
             if (Physics.Raycast(ray, out hit))
             {
+                if (hit.collider.CompareTag("Monitor"))
+                {
+                    camera1.enabled = false;
+                    camera2.enabled = true;
+                    Debug.Log("2");
+                }
+
                 if (hit.collider.CompareTag("Pickup") & chekHand == false)
                 {
                     chek = true;
@@ -90,11 +98,7 @@ public class MousController : MonoBehaviour
                     Debug.Log(item.tag);
                 }
 
-                if (hit.collider.CompareTag("Monitor"))
-                {
-                    camera1.enabled = false;
-                    camera2.enabled = true;
-                }
+                
             }
         }
 
