@@ -38,7 +38,7 @@ public class MousController : MonoBehaviour
         Debug.DrawRay(transform.position, transform.forward * rast, Color.yellow);
 
         RaycastHit hit;
-                
+        
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (Physics.Raycast(ray, out hit))
@@ -69,6 +69,7 @@ public class MousController : MonoBehaviour
                 {
                     item.transform.parent = hit.collider.gameObject.transform;
                     item.GetComponent<Rigidbody>().isKinematic = true;
+                    item.GetComponent<Collider>().isTrigger = false;
                     item.transform.position = hit.collider.gameObject.transform.position;
                     item.transform.rotation = hit.collider.gameObject.transform.rotation;
                     //item.transform.position = hit.point + Vector3.up * 0.1f;
@@ -82,11 +83,12 @@ public class MousController : MonoBehaviour
                     float x = hit.collider.gameObject.transform.localScale.x;
                     float y = hit.collider.gameObject.transform.localScale.y;
                     float z = hit.collider.gameObject.transform.localScale.z;
-                    item.transform.localScale = new Vector3(0.3f / x, 0.3f / y, 0.3f / z);
-                    item.GetComponent<Rigidbody>().isKinematic = false;
-                    //item.transform.position = hit.collider.gameObject.transform.position;
+                    item.transform.localScale = new Vector3(1f / x, 1f / y, 1f / z);
+                    item.GetComponent<Rigidbody>().isKinematic = true;
+                    item.GetComponent<Collider>().isTrigger = false;
+                    item.transform.position = hit.collider.gameObject.transform.position;
                     item.transform.rotation = hit.collider.gameObject.transform.rotation;
-                    item.transform.position = hit.point + Vector3.up * 0.1f;
+                    //item.transform.position = hit.point + Vector3.up * 0.1f;
                     chekHand = false;
                     Debug.Log(item.tag);
                 }
@@ -126,6 +128,7 @@ public class MousController : MonoBehaviour
                 //item.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
 
                 item.GetComponent<Rigidbody>().isKinematic = true;
+                item.GetComponent<Collider>().isTrigger = true;
 
                 //string ObjectName = hit.collider.name;
 
