@@ -21,6 +21,10 @@ public class MousController : MonoBehaviour
     public Camera camera1;
     public Camera camera2;
 
+    private float rotX;
+    private float rotY;
+    private float rotZ;
+
     void Start()
     {
         //Cursor.lockState = CursorLockMode.Locked;
@@ -54,6 +58,7 @@ public class MousController : MonoBehaviour
                 {
                     chek = true;
                     item = hit.collider.gameObject;
+
                     Debug.Log(item.tag);
                 }
 
@@ -61,7 +66,6 @@ public class MousController : MonoBehaviour
                 {
                     chek = true;
                     item = hit.collider.gameObject;
-                    //item.transform.position = new Vector3(0,0,0);
                     Debug.Log(item.tag);
                 }
 
@@ -86,8 +90,14 @@ public class MousController : MonoBehaviour
                     item.transform.localScale = new Vector3(1f / x, 1f / y, 1f / z);
                     item.GetComponent<Rigidbody>().isKinematic = true;
                     item.GetComponent<Collider>().isTrigger = false;
-                    item.transform.position = hit.collider.gameObject.transform.position;
-                    item.transform.rotation = hit.collider.gameObject.transform.rotation;
+                    //item.transform.position = hit.collider.gameObject.transform.position;
+
+                    Vector3 surfacePoint = hit.point;
+                    Vector3 surfaceNormal = hit.normal;
+                    item.transform.position = surfacePoint;
+                    Quaternion surfaceRotation = Quaternion.FromToRotation(item.transform.up, surfaceNormal);
+                    item.transform.rotation = surfaceRotation * item.transform.rotation;
+
                     //item.transform.position = hit.point + Vector3.up * 0.1f;
                     chekHand = false;
                     Debug.Log(item.tag);
@@ -124,8 +134,6 @@ public class MousController : MonoBehaviour
                 item.transform.parent = hand.transform;
 
                 item.transform.position = hand.transform.position;
-
-                //item.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
 
                 item.GetComponent<Rigidbody>().isKinematic = true;
                 item.GetComponent<Collider>().isTrigger = true;
