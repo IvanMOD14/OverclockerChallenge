@@ -75,7 +75,26 @@ public class MousController : MonoBehaviour
                     item.GetComponent<Rigidbody>().isKinematic = true;
                     item.GetComponent<Collider>().isTrigger = false;
                     item.transform.position = hit.collider.gameObject.transform.position;
+
+                    Vector3 surfaceNormal = hit.normal;
+                    Quaternion surfaceRotation = Quaternion.FromToRotation(item.transform.up, surfaceNormal);
+                    item.transform.rotation = surfaceRotation * item.transform.rotation;
+                    item.transform.rotation = new Quaternion(90, 90, -90, 90);
+
+
+                    //item.transform.position = hit.point + Vector3.up * 0.1f;
+                    chekHand = false;
+                    Debug.Log(item.tag);
+                }
+
+                if (hit.collider.CompareTag("MaterinkaComponent") & chekHand == true & item.tag != "PickupPay")
+                {
+                    item.transform.parent = hit.collider.gameObject.transform;
+                    item.GetComponent<Rigidbody>().isKinematic = true;
+                    item.GetComponent<Collider>().isTrigger = false;
+                    item.transform.position = hit.collider.gameObject.transform.position;
                     item.transform.rotation = hit.collider.gameObject.transform.rotation;
+
                     //item.transform.position = hit.point + Vector3.up * 0.1f;
                     chekHand = false;
                     Debug.Log(item.tag);
