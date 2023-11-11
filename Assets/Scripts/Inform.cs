@@ -29,7 +29,7 @@ public class Inform : MonoBehaviour
 
     public void Exit()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     private void Update()

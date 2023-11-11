@@ -13,7 +13,7 @@ public class LoadMainMenu : MonoBehaviour
     {
         a = PlayerPrefs.GetInt("SavedInteger");
 
-        if (SceneManager.GetActiveScene().buildIndex == 0 & a == 0)
+        if (SceneManager.GetActiveScene().buildIndex == 1 & a == 0)
         {
             loadScene = GetComponent<PlayableDirector>();
             loadScene.Play();

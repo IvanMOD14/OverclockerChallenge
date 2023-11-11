@@ -7,7 +7,7 @@ public class SceneMeneger : MonoBehaviour
 {
     private void Start()
     {        
-        if (SceneManager.GetActiveScene().buildIndex == 4)
+        if (SceneManager.GetActiveScene().buildIndex == 0)
         {
             Invoke("load", 6);
             PlayerPrefs.DeleteAll();
@@ -16,27 +16,27 @@ public class SceneMeneger : MonoBehaviour
 
     void load()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void StartGame()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(4);
     }
 
     public void LoadMainMenu()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void LoadSetings()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     public void LoadInstruction()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 
     public void QuitGame()
