@@ -69,7 +69,7 @@ public class MousController : MonoBehaviour
                     Debug.Log(item.tag);
                 }
 
-                if (hit.collider.CompareTag("Materinka") & chekHand == true & item.tag != "PickupPay")
+                if (hit.collider.CompareTag("Materinka") & chekHand == true & item.tag != "PickupPay" & item.name == "Materinka")
                 {
                     item.transform.parent = hit.collider.gameObject.transform;
                     item.GetComponent<Rigidbody>().isKinematic = true;
@@ -87,7 +87,7 @@ public class MousController : MonoBehaviour
                     Debug.Log(item.tag);
                 }
 
-                if (hit.collider.CompareTag("MaterinkaComponent") & chekHand == true & item.tag != "PickupPay")
+                if (hit.collider.CompareTag("GPU") & chekHand == true & item.tag != "PickupPay" & item.name == "GPU")
                 {
                     item.transform.parent = hit.collider.gameObject.transform;
                     item.GetComponent<Rigidbody>().isKinematic = true;
@@ -100,13 +100,125 @@ public class MousController : MonoBehaviour
                     Debug.Log(item.tag);
                 }
 
-                else if (hit.collider.CompareTag("Table") & chekHand == true)
+                if (hit.collider.CompareTag("CPU") & chekHand == true & item.tag != "PickupPay" & item.name == "CPU")
+                {
+                    item.transform.parent = hit.collider.gameObject.transform;
+                    item.GetComponent<Rigidbody>().isKinematic = true;
+                    item.GetComponent<Collider>().isTrigger = false;
+                    item.transform.position = hit.collider.gameObject.transform.position;
+                    item.transform.rotation = hit.collider.gameObject.transform.rotation;
+
+                    //item.transform.position = hit.point + Vector3.up * 0.1f;
+                    chekHand = false;
+                    Debug.Log(item.tag);
+                }
+
+                if (hit.collider.CompareTag("CPU") & chekHand == true & item.tag != "PickupPay" & item.name == "Culler")
+                {
+                    item.transform.parent = hit.collider.gameObject.transform;
+                    item.GetComponent<Rigidbody>().isKinematic = true;
+                    item.GetComponent<Collider>().isTrigger = false;
+                    item.transform.position = hit.collider.gameObject.transform.position;
+                    item.transform.rotation = hit.collider.gameObject.transform.rotation;
+
+                    //item.transform.position = hit.point + Vector3.up * 0.1f;
+                    chekHand = false;
+                    Debug.Log(item.tag);
+                }
+
+                if (hit.collider.CompareTag("DDR") & chekHand == true & item.tag != "PickupPay" & item.name == "DDR")
+                {
+                    item.transform.parent = hit.collider.gameObject.transform;
+                    item.GetComponent<Rigidbody>().isKinematic = true;
+                    item.GetComponent<Collider>().isTrigger = false;
+                    item.transform.position = hit.collider.gameObject.transform.position;
+                    item.transform.rotation = hit.collider.gameObject.transform.rotation;
+
+                    //item.transform.position = hit.point + Vector3.up * 0.1f;
+                    chekHand = false;
+                    Debug.Log(item.tag);
+                }
+
+                if (hit.collider.CompareTag("PSU") & chekHand == true & item.tag != "PickupPay" & item.name == "PSU")
+                {
+                    item.transform.parent = hit.collider.gameObject.transform;
+                    item.GetComponent<Rigidbody>().isKinematic = true;
+                    item.GetComponent<Collider>().isTrigger = false;
+                    item.transform.position = hit.collider.gameObject.transform.position;
+
+                    Vector3 surfaceNormal = hit.normal;
+                    Quaternion surfaceRotation = Quaternion.FromToRotation(item.transform.up, surfaceNormal);
+                    item.transform.rotation = surfaceRotation * item.transform.rotation;
+                    item.transform.rotation = new Quaternion(0, 90, 0, 0);
+
+                    //item.transform.position = hit.point + Vector3.up * 0.1f;
+                    chekHand = false;
+                    Debug.Log(item.tag);
+                }
+
+                if (hit.collider.CompareTag("Vertushka") & chekHand == true & item.tag != "PickupPay" & item.name == "Vertushka")
+                {
+                    item.transform.parent = hit.collider.gameObject.transform;
+                    item.GetComponent<Rigidbody>().isKinematic = true;
+                    item.GetComponent<Collider>().isTrigger = false;
+                    item.transform.position = hit.collider.gameObject.transform.position;
+
+                    Vector3 surfaceNormal = hit.normal;
+                    Quaternion surfaceRotation = Quaternion.FromToRotation(item.transform.up, surfaceNormal);
+                    item.transform.rotation = surfaceRotation * item.transform.rotation;
+                    item.transform.rotation = new Quaternion(90, 0, 0, 90);
+
+                    //item.transform.position = hit.point + Vector3.up * 0.1f;
+                    chekHand = false;
+                    Debug.Log(item.tag);
+                }
+
+                if (hit.collider.CompareTag("HDD") & chekHand == true & item.tag != "PickupPay" & item.name == "HDD")
+                {
+                    item.transform.parent = hit.collider.gameObject.transform;
+                    item.GetComponent<Rigidbody>().isKinematic = true;
+                    item.GetComponent<Collider>().isTrigger = false;
+                    item.transform.position = hit.collider.gameObject.transform.position;
+
+                    Vector3 surfaceNormal = hit.normal;
+                    Quaternion surfaceRotation = Quaternion.FromToRotation(item.transform.up, surfaceNormal);
+                    item.transform.rotation = surfaceRotation * item.transform.rotation;
+                    item.transform.rotation = new Quaternion(0, 90, 0, 90);
+
+                    //item.transform.position = hit.point + Vector3.up * 0.1f;
+                    chekHand = false;
+                    Debug.Log(item.tag);
+                }
+
+                else if (hit.collider.CompareTag("Table") & chekHand == true & item.name != "Stenka")
                 {
                     item.transform.parent = hit.collider.gameObject.transform;
                     float x = hit.collider.gameObject.transform.localScale.x;
                     float y = hit.collider.gameObject.transform.localScale.y;
                     float z = hit.collider.gameObject.transform.localScale.z;
                     item.transform.localScale = new Vector3(1f / x, 1f / y, 1f / z);
+                    item.GetComponent<Rigidbody>().isKinematic = true;
+                    item.GetComponent<Collider>().isTrigger = false;
+                    //item.transform.position = hit.collider.gameObject.transform.position;
+
+                    Vector3 surfacePoint = hit.point;
+                    Vector3 surfaceNormal = hit.normal;
+                    item.transform.position = surfacePoint;
+                    Quaternion surfaceRotation = Quaternion.FromToRotation(item.transform.up, surfaceNormal);
+                    item.transform.rotation = surfaceRotation * item.transform.rotation;
+
+                    //item.transform.position = hit.point + Vector3.up * 0.1f;
+                    chekHand = false;
+                    Debug.Log(item.tag);
+                }
+
+                else if (hit.collider.CompareTag("Table") & chekHand == true & item.name == "Stenka")
+                {
+                    item.transform.parent = hit.collider.gameObject.transform;
+                    float x = hit.collider.gameObject.transform.localScale.x;
+                    float y = hit.collider.gameObject.transform.localScale.y;
+                    float z = hit.collider.gameObject.transform.localScale.z;
+                    item.transform.localScale = new Vector3(100f / x, 100f / y, 100f / z);
                     item.GetComponent<Rigidbody>().isKinematic = true;
                     item.GetComponent<Collider>().isTrigger = false;
                     //item.transform.position = hit.collider.gameObject.transform.position;

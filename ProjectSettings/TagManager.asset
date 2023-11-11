@@ -11,6 +11,13 @@ TagManager:
   - Pay
   - Monitor
   - MaterinkaComponent
+  - PSU
+  - Coller
+  - HDD
+  - GPU
+  - Vertushka
+  - CPU
+  - DDR
   layers:
   - Default
   - TransparentFX

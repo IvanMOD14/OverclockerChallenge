@@ -5,6 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class SceneMeneger : MonoBehaviour
 {
+    private void Start()
+    {        
+        if (SceneManager.GetActiveScene().buildIndex == 4)
+        {
+            Invoke("load", 5);
+            PlayerPrefs.DeleteAll();
+        }
+    }
+
+    void load()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void StartGame()
     {
         SceneManager.LoadScene(3);
