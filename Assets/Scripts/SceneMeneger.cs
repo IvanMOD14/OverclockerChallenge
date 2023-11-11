@@ -9,7 +9,7 @@ public class SceneMeneger : MonoBehaviour
     {        
         if (SceneManager.GetActiveScene().buildIndex == 4)
         {
-            Invoke("load", 5);
+            Invoke("load", 6);
             PlayerPrefs.DeleteAll();
         }
     }
