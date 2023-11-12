@@ -49,6 +49,8 @@ public class MousController : MonoBehaviour
         {
             if (Physics.Raycast(ray, out hit))
             {
+                buttonClik = false;
+
                 if (hit.collider.CompareTag("Monitor"))
                 {
                     camera1.enabled = false;
@@ -284,7 +286,6 @@ public class MousController : MonoBehaviour
                     return;
                 }
 
-                buttonClik = false;
             }
         }
 

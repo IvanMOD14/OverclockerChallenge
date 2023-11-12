@@ -14,6 +14,10 @@ public class Monik : MonoBehaviour
 
     public GameObject taskMenu;
 
+    int startTask1;
+    int startTask2;
+    int startTask3;
+
     public void Exit()
     {
         camera1.enabled = true;
@@ -44,5 +48,32 @@ public class Monik : MonoBehaviour
     {
         task3.SetActive(true);
         taskMenu.SetActive(false);
+    }
+
+    public void StartTask1() 
+    {
+        startTask1 = 1;
+        PlayerPrefs.SetInt("Task1", startTask1);
+        PlayerPrefs.Save();
+    }
+
+    public void StartTask2()
+    {
+        if (startTask1 == 2) 
+        {
+            startTask2 = 1;
+            PlayerPrefs.SetInt("Task2", startTask2);
+            PlayerPrefs.Save();
+        }
+    }
+
+    public void StartTask3()
+    {
+        if (startTask2 == 2)
+        {
+            startTask3 = 1;
+            PlayerPrefs.SetInt("Task3", startTask3);
+            PlayerPrefs.Save();
+        }
     }
 }
