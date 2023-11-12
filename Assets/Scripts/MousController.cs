@@ -10,7 +10,6 @@ public class MousController : MonoBehaviour
 
     public float sens = 200f;
     public float rast = 10f;
-    float xRotation = 0f;
     public int maney = 100;
     
     public Transform pointer;
@@ -21,9 +20,7 @@ public class MousController : MonoBehaviour
     public Camera camera1;
     public Camera camera2;
 
-    private float rotX;
-    private float rotY;
-    private float rotZ;
+    bool buttonClik;
 
     void Start()
     {
@@ -33,17 +30,22 @@ public class MousController : MonoBehaviour
         Debug.Log("1");
     }
 
+    public void ButtonClik()
+    {
+        buttonClik = true;
+    }
+
     void Update()
     {
-        float mX = Input.GetAxis("Mouse X") * sens * Time.deltaTime;
-        float mY = Input.GetAxis("Mouse Y") * sens * Time.deltaTime;
+        //float mX = Input.GetAxis("Mouse X") * sens * Time.deltaTime;
+        //float mY = Input.GetAxis("Mouse Y") * sens * Time.deltaTime;
 
         Ray ray = new Ray(transform.position, transform.forward);
         Debug.DrawRay(transform.position, transform.forward * rast, Color.yellow);
 
         RaycastHit hit;
         
-        if (Input.GetKeyDown(KeyCode.E))
+        if (buttonClik == true)
         {
             if (Physics.Raycast(ray, out hit))
             {
@@ -65,7 +67,7 @@ public class MousController : MonoBehaviour
                 if (hit.collider.CompareTag("PickupPay"))
                 {
                     chek = true;
-                    item = hit.collider.gameObject;
+                    item = hit.collider.gameObject; 
                     Debug.Log(item.tag);
                 }
 
@@ -81,6 +83,19 @@ public class MousController : MonoBehaviour
                     item.transform.rotation = surfaceRotation * item.transform.rotation;
                     item.transform.rotation = new Quaternion(90, 90, -90, 90);
 
+
+                    //item.transform.position = hit.point + Vector3.up * 0.1f;
+                    chekHand = false;
+                    Debug.Log(item.tag);
+                }
+
+                if (hit.collider.CompareTag("Stenka") & chekHand == true & item.tag != "PickupPay" & item.name == "Stenka")
+                {
+                    item.transform.parent = hit.collider.gameObject.transform;
+                    item.GetComponent<Rigidbody>().isKinematic = true;
+                    item.GetComponent<Collider>().isTrigger = false;
+                    item.transform.position = hit.collider.gameObject.transform.position;
+                    item.transform.rotation = hit.collider.gameObject.transform.rotation;
 
                     //item.transform.position = hit.point + Vector3.up * 0.1f;
                     chekHand = false;
@@ -125,7 +140,7 @@ public class MousController : MonoBehaviour
                     chekHand = false;
                     Debug.Log(item.tag);
                 }
-
+                
                 if (hit.collider.CompareTag("DDR") & chekHand == true & item.tag != "PickupPay" & item.name == "DDR")
                 {
                     item.transform.parent = hit.collider.gameObject.transform;
@@ -190,7 +205,29 @@ public class MousController : MonoBehaviour
                     Debug.Log(item.tag);
                 }
 
-                else if (hit.collider.CompareTag("Table") & chekHand == true & item.name != "Stenka")
+                if (hit.collider.CompareTag("Table") & chekHand == true & item.tag != "PickupPay" & item.name == "Corpus")
+                {
+                    item.transform.parent = hit.collider.gameObject.transform;
+                    item.GetComponent<Rigidbody>().isKinematic = true;
+                    item.GetComponent<Collider>().isTrigger = false;
+                    item.transform.position = hit.collider.gameObject.transform.position;
+
+                    float x = hit.collider.gameObject.transform.localScale.x;
+                    float y = hit.collider.gameObject.transform.localScale.y;
+                    float z = hit.collider.gameObject.transform.localScale.z;
+                    item.transform.localScale = new Vector3(1f / x, 1f / y, 1f / z);
+
+                    Vector3 surfaceNormal = hit.normal;
+                    Quaternion surfaceRotation = Quaternion.FromToRotation(item.transform.up, surfaceNormal);
+                    item.transform.rotation = surfaceRotation * item.transform.rotation;
+                    item.transform.rotation = new Quaternion(0, 90, 0, 90);
+
+                    //item.transform.position = hit.point + Vector3.up * 0.1f;
+                    chekHand = false;
+                    Debug.Log(item.tag);
+                }
+
+                else if ((hit.collider.CompareTag("Table") || hit.collider.CompareTag("Pickup")) & chekHand == true & item.name != "Stenka")
                 {
                     item.transform.parent = hit.collider.gameObject.transform;
                     float x = hit.collider.gameObject.transform.localScale.x;
@@ -241,7 +278,13 @@ public class MousController : MonoBehaviour
                     Debug.Log(item.tag);
                 }
 
-                
+                else
+                {
+                    buttonClik = false;
+                    return;
+                }
+
+                buttonClik = false;
             }
         }
 
@@ -280,13 +323,13 @@ public class MousController : MonoBehaviour
             }
         }
 
-        xRotation -= mY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        //xRotation -= mY;
+        //xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
 
 
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        //transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
-        playerBody.Rotate(Vector3.up * mX);
+        //playerBody.Rotate(Vector3.up * mX);
     }
 }
