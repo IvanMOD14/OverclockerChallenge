@@ -10,6 +10,8 @@ public class Task : MonoBehaviour
     private bool task2;
     private bool task3;
 
+    public GameObject Task_1;
+
     //GPU
     public int GPU;
 
@@ -74,5 +76,11 @@ public class Task : MonoBehaviour
                 score += 1;
             }
         }
+    }
+
+    public void Task1()
+    {
+        task1 = true;
+        Task_1.SetActive(true);
     }
 }

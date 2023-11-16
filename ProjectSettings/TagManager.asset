@@ -19,6 +19,8 @@ TagManager:
   - CPU
   - DDR
   - Stenka
+  - TableCorpus
+  - door
   layers:
   - Default
   - TransparentFX

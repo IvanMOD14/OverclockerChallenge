@@ -6,27 +6,59 @@ using UnityEngine;
 public class AnimDors : MonoBehaviour
 {
     public Animator animator;
-    bool chek;
+    public static bool chekDoorHous;
+    public static bool chekDoorShop1;
+    public static bool chekDoorShop2;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
     }
 
-    public void OpenDors()
+    public void OpenDorsHous()
     {
-        if (chek == true)
+        if (chekDoorHous == true)
         {
             animator.SetBool("Open", true);
-            chek = false;
             return;
         }
 
 
-        if (chek == false)
+        if (chekDoorHous == false)
         {
             animator.SetBool("Open", false);
-            chek = true;
+            return;
+        }
+    }
+
+    public void OpenDorsShop1()
+    {
+        if (chekDoorShop1 == true)
+        {
+            animator.SetBool("Open1", true);
+            return;
+        }
+
+
+        if (chekDoorShop1 == false)
+        {
+            animator.SetBool("Open1", false);
+            return;
+        }
+    }
+
+    public void OpenDorsShop2()
+    {
+        if (chekDoorShop2 == true)
+        {
+            animator.SetBool("Open2", true);
+            return;
+        }
+
+
+        if (chekDoorShop2 == false)
+        {
+            animator.SetBool("Open2", false);
             return;
         }
     }

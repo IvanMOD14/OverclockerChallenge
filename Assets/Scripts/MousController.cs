@@ -20,6 +20,8 @@ public class MousController : MonoBehaviour
     public Camera camera1;
     public Camera camera2;
 
+    public GameObject door;
+
     bool buttonClik;
 
     void Start()
@@ -64,6 +66,63 @@ public class MousController : MonoBehaviour
                     item = hit.collider.gameObject;
 
                     Debug.Log(item.tag);
+                }
+
+                if (hit.collider.CompareTag("door"))
+                {
+                    if (AnimDors.chekDoorHous == true & hit.collider.name == "DoorHouse")
+                    {
+                        AnimDors.chekDoorHous = false;
+                        door = GameObject.Find("DoorHouse");
+                        AnimDors script = door.GetComponent<AnimDors>();
+                        script.OpenDorsHous();
+                        return;
+                    }
+
+                    if (AnimDors.chekDoorHous == false & hit.collider.name == "DoorHouse")
+                    {
+                        AnimDors.chekDoorHous = true;
+                        door = GameObject.Find("DoorHouse");
+                        AnimDors script = door.GetComponent<AnimDors>();
+                        script.OpenDorsHous();
+                        return;
+                    }
+                    
+                    if (AnimDors.chekDoorShop1 == true & hit.collider.name == "DoorShop1")
+                    {
+                        AnimDors.chekDoorShop1 = false;
+                        door = GameObject.Find("DoorShop1");
+                        AnimDors script = door.GetComponent<AnimDors>();
+                        script.OpenDorsShop1();
+                        return;
+                    }
+
+                    if (AnimDors.chekDoorShop1 == false & hit.collider.name == "DoorShop1")
+                    {
+                        AnimDors.chekDoorShop1 = true;
+                        door = GameObject.Find("DoorShop1");
+                        AnimDors script = door.GetComponent<AnimDors>();
+                        script.OpenDorsShop1();
+                        return;
+                    }
+
+                    if (AnimDors.chekDoorShop2 == true & hit.collider.name == "DoorShop2")
+                    {
+                        AnimDors.chekDoorShop2 = false;
+                        door = GameObject.Find("DoorShop2");
+                        AnimDors script = door.GetComponent<AnimDors>();
+                        script.OpenDorsShop2();
+                        return;
+                    }
+
+                    if (AnimDors.chekDoorShop2 == false & hit.collider.name == "DoorShop2")
+                    {
+                        AnimDors.chekDoorShop2 = true;
+                        door = GameObject.Find("DoorShop2");
+                        AnimDors script = door.GetComponent<AnimDors>();
+                        script.OpenDorsShop2();
+                        return;
+                    }
                 }
 
                 if (hit.collider.CompareTag("PickupPay"))
@@ -207,7 +266,7 @@ public class MousController : MonoBehaviour
                     Debug.Log(item.tag);
                 }
 
-                if (hit.collider.CompareTag("Table") & chekHand == true & item.tag != "PickupPay" & item.name == "Corpus")
+                if (hit.collider.CompareTag("TableCorpus") & chekHand == true & item.tag != "PickupPay" & item.name == "Corpus")
                 {
                     item.transform.parent = hit.collider.gameObject.transform;
                     item.GetComponent<Rigidbody>().isKinematic = true;
@@ -218,6 +277,7 @@ public class MousController : MonoBehaviour
                     float y = hit.collider.gameObject.transform.localScale.y;
                     float z = hit.collider.gameObject.transform.localScale.z;
                     item.transform.localScale = new Vector3(1f / x, 1f / y, 1f / z);
+                    item.transform.localPosition = new Vector3(0, 0.42f, 0);
 
                     Vector3 surfaceNormal = hit.normal;
                     Quaternion surfaceRotation = Quaternion.FromToRotation(item.transform.up, surfaceNormal);
@@ -229,7 +289,7 @@ public class MousController : MonoBehaviour
                     Debug.Log(item.tag);
                 }
 
-                else if ((hit.collider.CompareTag("Table") || hit.collider.CompareTag("Pickup")) & chekHand == true & item.name != "Stenka")
+                else if (hit.collider.CompareTag("Table") & chekHand == true & item.name != "Stenka" & item.name != "Corpus")
                 {
                     item.transform.parent = hit.collider.gameObject.transform;
                     float x = hit.collider.gameObject.transform.localScale.x;
