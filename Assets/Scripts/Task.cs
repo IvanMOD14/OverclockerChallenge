@@ -13,65 +13,74 @@ public class Task : MonoBehaviour
     public GameObject Task_1;
 
     //GPU
-    public int GPU;
+    string GPU;
 
     //CPU
-    public int CPU;
+    string CPU;
 
     //DDR
-    public int DDR;
+    string DDR;
 
     //SSD and HDD
-    public int SSD;
-    public int HDD;
+    string SSD;
+    string HDD;
 
     //PSU
-    public int PSU;
+    string PSU;
 
     //Materinka
-    public int LGA;
+    string LGA;
 
     //Corpus
-    public int Corpus;
+    string Corpus;
 
     //Score
-    public int score;
+    private string score;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(other.gameObject.name);
+        if(other.gameObject.name == "GPU_1")
+        {
+
+        }
+    }
 
     private void Update()
     {
         if(task1 == true)
         {
-            if (GPU == 1)
+            if (GPU == "GPU_1")
             {
                 score += 1;
             }
 
-            if (CPU == 1)
+            if (CPU == "CPU_1")
             {
                 score += 1;
             }
 
-            if (DDR == 1)
+            if (DDR == "DDR4")
             {
                 score += 1;
             }
 
-            if (SSD == 1 || HDD == 1)
+            if (SSD == "SSD_1" || HDD == "HDD_1")
             {
                 score += 1;
             }
 
-            if (PSU == 1)
+            if (PSU == "PSU_1")
             {
                 score += 1;
             }
 
-            if (LGA == 1)
+            if (LGA == "LGA_1")
             {
                 score += 1;
             }
 
-            if (Corpus == 1)
+            if (Corpus == "Corpus_1")
             {
                 score += 1;
             }
