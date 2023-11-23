@@ -6,90 +6,40 @@ using UnityEngine.SocialPlatforms.Impl;
 public class Task : MonoBehaviour
 {
     //Task
-    private bool task1;
-    private bool task2;
-    private bool task3;
+    public static bool task1;
+    public static bool task2;
+    public static bool task3;
 
     public GameObject Task_1;
-
-    //GPU
-    string GPU;
-
-    //CPU
-    string CPU;
-
-    //DDR
-    string DDR;
-
-    //SSD and HDD
-    string SSD;
-    string HDD;
-
-    //PSU
-    string PSU;
-
-    //Materinka
-    string LGA;
-
-    //Corpus
-    string Corpus;
-
-    //Score
-    private string score;
-
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log(other.gameObject.name);
-        if(other.gameObject.name == "GPU_1")
-        {
-
-        }
-    }
-
-    private void Update()
-    {
-        if(task1 == true)
-        {
-            if (GPU == "GPU_1")
-            {
-                score += 1;
-            }
-
-            if (CPU == "CPU_1")
-            {
-                score += 1;
-            }
-
-            if (DDR == "DDR4")
-            {
-                score += 1;
-            }
-
-            if (SSD == "SSD_1" || HDD == "HDD_1")
-            {
-                score += 1;
-            }
-
-            if (PSU == "PSU_1")
-            {
-                score += 1;
-            }
-
-            if (LGA == "LGA_1")
-            {
-                score += 1;
-            }
-
-            if (Corpus == "Corpus_1")
-            {
-                score += 1;
-            }
-        }
-    }
+    public GameObject Task_2;
+    public GameObject Task_3;
+    public static int score;
+    public static int AllComponent;
 
     public void Task1()
     {
         task1 = true;
         Task_1.SetActive(true);
+    }
+
+    public void Task2()
+    {
+        task2 = true;
+        Task_2.SetActive(true);
+    }
+
+    public void Task3()
+    {
+        task3 = true;
+        Task_3.SetActive(true);
+    }
+
+    private void Update()
+    {
+        if (Task.score >= 8 & AllComponent >= 9)
+        {
+            Task_1.SetActive(false);
+            Monik.startTask1 = 2;
+        }
     }
 }

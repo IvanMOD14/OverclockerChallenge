@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 
@@ -13,6 +14,7 @@ public class MousController : MonoBehaviour
     public int maney = 100;
     
     public Transform pointer;
+    public GameObject pointerObject;
     private GameObject item;
     private bool chek = false;
     private bool chekHand = false;
@@ -29,6 +31,7 @@ public class MousController : MonoBehaviour
         //Cursor.lockState = CursorLockMode.Locked;
         camera1.enabled = true;
         camera2.enabled = false;
+        pointerObject.SetActive(true);
         Debug.Log("1");
     }
 
@@ -57,6 +60,8 @@ public class MousController : MonoBehaviour
                 {
                     camera1.enabled = false;
                     camera2.enabled = true;
+                    pointerObject.SetActive(false);
+
                     Debug.Log("2");
                 }
 
@@ -66,6 +71,13 @@ public class MousController : MonoBehaviour
                     item = hit.collider.gameObject;
 
                     Debug.Log(item.tag);
+                }
+
+                if (chekHand == false & hit.collider.gameObject.layer == LayerMask.NameToLayer("Box"))
+                {
+                    chek = true;
+                    item = hit.collider.gameObject;
+                    Debug.Log("LOL");
                 }
 
                 if (hit.collider.CompareTag("door"))
@@ -132,7 +144,7 @@ public class MousController : MonoBehaviour
                     Debug.Log(item.tag);
                 }
 
-                if (hit.collider.CompareTag("Materinka") & chekHand == true & item.tag != "PickupPay" & item.name == "Materinka")
+                if (hit.collider.CompareTag("Materinka") & chekHand == true & item.tag != "PickupPay" & item.name == "LGA_1")
                 {
                     item.transform.parent = hit.collider.gameObject.transform;
                     item.GetComponent<Rigidbody>().isKinematic = true;
@@ -150,7 +162,7 @@ public class MousController : MonoBehaviour
                     Debug.Log(item.tag);
                 }
 
-                if (hit.collider.CompareTag("Stenka") & chekHand == true & item.tag != "PickupPay" & item.name == "Stenka")
+                if (hit.collider.CompareTag("Stenka") & chekHand == true & item.tag != "PickupPay" & item.name == "Stenka_1")
                 {
                     item.transform.parent = hit.collider.gameObject.transform;
                     item.GetComponent<Rigidbody>().isKinematic = true;
@@ -163,7 +175,7 @@ public class MousController : MonoBehaviour
                     Debug.Log(item.tag);
                 }
 
-                if (hit.collider.CompareTag("GPU") & chekHand == true & item.tag != "PickupPay" & item.name == "GPU")
+                if (hit.collider.CompareTag("GPU") & chekHand == true & item.tag != "PickupPay" & item.name == "GPU_1")
                 {
                     item.transform.parent = hit.collider.gameObject.transform;
                     item.GetComponent<Rigidbody>().isKinematic = true;
@@ -176,7 +188,7 @@ public class MousController : MonoBehaviour
                     Debug.Log(item.tag);
                 }
 
-                if (hit.collider.CompareTag("CPU") & chekHand == true & item.tag != "PickupPay" & item.name == "CPU")
+                if (hit.collider.CompareTag("CPU") & chekHand == true & item.tag != "PickupPay" & item.name == "CPU_1")
                 {
                     item.transform.parent = hit.collider.gameObject.transform;
                     item.GetComponent<Rigidbody>().isKinematic = true;
@@ -189,7 +201,7 @@ public class MousController : MonoBehaviour
                     Debug.Log(item.tag);
                 }
 
-                if (hit.collider.CompareTag("CPU") & chekHand == true & item.tag != "PickupPay" & item.name == "Culler")
+                if (hit.collider.CompareTag("CPU") & chekHand == true & item.tag != "PickupPay" & item.name == "Culler_1")
                 {
                     item.transform.parent = hit.collider.gameObject.transform;
                     item.GetComponent<Rigidbody>().isKinematic = true;
@@ -202,7 +214,7 @@ public class MousController : MonoBehaviour
                     Debug.Log(item.tag);
                 }
                 
-                if (hit.collider.CompareTag("DDR") & chekHand == true & item.tag != "PickupPay" & item.name == "DDR")
+                if (hit.collider.CompareTag("DDR") & chekHand == true & item.tag != "PickupPay" & item.name == "DDR4_1")
                 {
                     item.transform.parent = hit.collider.gameObject.transform;
                     item.GetComponent<Rigidbody>().isKinematic = true;
@@ -215,7 +227,7 @@ public class MousController : MonoBehaviour
                     Debug.Log(item.tag);
                 }
 
-                if (hit.collider.CompareTag("PSU") & chekHand == true & item.tag != "PickupPay" & item.name == "PSU")
+                if (hit.collider.CompareTag("PSU") & chekHand == true & item.tag != "PickupPay" & item.name == "PSU_1")
                 {
                     item.transform.parent = hit.collider.gameObject.transform;
                     item.GetComponent<Rigidbody>().isKinematic = true;
@@ -232,7 +244,7 @@ public class MousController : MonoBehaviour
                     Debug.Log(item.tag);
                 }
 
-                if (hit.collider.CompareTag("Vertushka") & chekHand == true & item.tag != "PickupPay" & item.name == "Vertushka")
+                if (hit.collider.CompareTag("Vertushka") & chekHand == true & item.tag != "PickupPay" & item.name == "Vertushka_1")
                 {
                     item.transform.parent = hit.collider.gameObject.transform;
                     item.GetComponent<Rigidbody>().isKinematic = true;
@@ -249,7 +261,7 @@ public class MousController : MonoBehaviour
                     Debug.Log(item.tag);
                 }
 
-                if (hit.collider.CompareTag("HDD") & chekHand == true & item.tag != "PickupPay" & item.name == "HDD")
+                if (hit.collider.CompareTag("HDD") & chekHand == true & item.tag != "PickupPay" & item.name == "HDD_1")
                 {
                     item.transform.parent = hit.collider.gameObject.transform;
                     item.GetComponent<Rigidbody>().isKinematic = true;
@@ -289,7 +301,7 @@ public class MousController : MonoBehaviour
                     Debug.Log(item.tag);
                 }
 
-                else if (hit.collider.CompareTag("Table") & chekHand == true & item.name != "Stenka" & item.name != "Corpus")
+                else if (hit.collider.CompareTag("Table") & chekHand == true & item.name != "Stenka_1" & item.name != "Corpus")
                 {
                     item.transform.parent = hit.collider.gameObject.transform;
                     float x = hit.collider.gameObject.transform.localScale.x;
@@ -311,7 +323,7 @@ public class MousController : MonoBehaviour
                     Debug.Log(item.tag);
                 }
 
-                else if (hit.collider.CompareTag("Table") & chekHand == true & item.name == "Stenka")
+                else if (hit.collider.CompareTag("Table") & chekHand == true & item.name == "Stenka_1")
                 {
                     item.transform.parent = hit.collider.gameObject.transform;
                     float x = hit.collider.gameObject.transform.localScale.x;

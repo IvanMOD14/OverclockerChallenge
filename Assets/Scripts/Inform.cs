@@ -9,6 +9,10 @@ public class Inform : MonoBehaviour
     public GameObject st2;
     public GameObject st3;
 
+    public GameObject canvas1;
+    public GameObject canvas2;
+    public GameObject canvas3;
+
     int chek = 0;
 
     public void End()
@@ -29,7 +33,23 @@ public class Inform : MonoBehaviour
 
     public void Exit()
     {
-        SceneManager.LoadScene(1);
+        canvas1.SetActive(false); 
+        canvas2.SetActive(false);
+        canvas3.SetActive(true);
+    }
+
+    public void Information()
+    {
+        canvas1.SetActive(true);
+        canvas2.SetActive(false);
+        canvas3.SetActive(false);
+    }
+
+    public void Setings()
+    {
+        canvas1.SetActive(false);
+        canvas2.SetActive(true);
+        canvas3.SetActive(false);
     }
 
     private void Update()
