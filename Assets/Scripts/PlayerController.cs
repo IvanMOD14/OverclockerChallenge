@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public CharacterController controller;
-    public float Speed = 12f;
+    public static float Speed = 10f;
     public float SpeedShift = 20f;
     public float JumpForce = 3f;
     public float gravity = -9.81f;
@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private CharacterController characterController;
 
     // Player settings
-    [SerializeField] private float cameraSensitivity;
+    [SerializeField] public static float cameraSensitivity = 10f;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float moveInputDeadZone;
 

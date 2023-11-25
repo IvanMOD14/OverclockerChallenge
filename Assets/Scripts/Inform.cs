@@ -38,6 +38,11 @@ public class Inform : MonoBehaviour
         canvas3.SetActive(true);
     }
 
+    public void ExitMenu()
+    {
+        SceneManager.LoadScene(1);
+    }
+
     public void Information()
     {
         canvas1.SetActive(true);
@@ -50,6 +55,10 @@ public class Inform : MonoBehaviour
         canvas1.SetActive(false);
         canvas2.SetActive(true);
         canvas3.SetActive(false);
+        FindObjectOfType<AddFunctions>().moveSpeed();
+        FindObjectOfType<AddFunctions>().moveSpeed();
+        FindObjectOfType<AddFunctions>().cameraSen();
+        FindObjectOfType<AddFunctions>().cameraSen();
     }
 
     private void Update()

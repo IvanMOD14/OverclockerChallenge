@@ -9,6 +9,7 @@ public class ChekComponents : MonoBehaviour
 {
     int tr;
     bool chek;
+    bool ddr = false;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -16,64 +17,68 @@ public class ChekComponents : MonoBehaviour
 
         if (Task.task1 == true)
         {
-            if (other.gameObject.name == "GPU_1")
+            if (other.gameObject.name == "GTX_1050TI_1")
             {
                 string lastChar = other.gameObject.name.Substring(other.gameObject.name.Length - 1);
                 Task.score += Convert.ToInt32(lastChar);
                 Task.AllComponent += 1;
             }
 
-            if (other.gameObject.name == "CPU_1")
+            if (other.gameObject.name == "I3-10100F_1")
             {
                 string lastChar = other.gameObject.name.Substring(other.gameObject.name.Length - 1);
                 Task.score += Convert.ToInt32(lastChar);
                 Task.AllComponent += 1;
             }
 
-            if (other.gameObject.name == "DDR4_1")
+            if (other.gameObject.name == "DDR4_4gb_1")
             {
                 string lastChar = other.gameObject.name.Substring(other.gameObject.name.Length - 1);
                 Task.score += Convert.ToInt32(lastChar);
-                Task.AllComponent += Convert.ToInt32(lastChar);
-
+                Task.AllComponent += 1;
+                if (ddr == true)
+                {
+                    Task.AllComponent -= 1;
+                }
+                ddr = true;
             }
 
-            if (other.gameObject.name == "SSD_1" || other.gameObject.name == "HDD_1")
+            if (other.gameObject.name == "SSD_1" || other.gameObject.name == "HDD_1tb_1")
             {
                 string lastChar = other.gameObject.name.Substring(other.gameObject.name.Length - 1);
                 Task.score += Convert.ToInt32(lastChar);
                 Task.AllComponent += 1;
             }
 
-            if (other.gameObject.name == "PSU_1")
+            if (other.gameObject.name == "PSU_300W_1")
             {
                 string lastChar = other.gameObject.name.Substring(other.gameObject.name.Length - 1);
                 Task.score += Convert.ToInt32(lastChar);
                 Task.AllComponent += 1;
             }
 
-            if (other.gameObject.name == "LGA_1")
+            if (other.gameObject.name == "LGA_1700_1")
             {
                 string lastChar = other.gameObject.name.Substring(other.gameObject.name.Length - 1);
                 Task.score += Convert.ToInt32(lastChar);
                 Task.AllComponent += 1;
             }
 
-            if (other.gameObject.name == "Stenka_1")
+            if (other.gameObject.name == "Stenka_Ñlosed_1")
             {
                 string lastChar = other.gameObject.name.Substring(other.gameObject.name.Length - 1);
                 Task.score += Convert.ToInt32(lastChar);
                 Task.AllComponent += 1;
             }
 
-            if (other.gameObject.name == "Culler_1")
+            if (other.gameObject.name == "Culler_TDP120w_1")
             {
                 string lastChar = other.gameObject.name.Substring(other.gameObject.name.Length - 1);
                 Task.score += Convert.ToInt32(lastChar);
                 Task.AllComponent += 1;
             }
 
-            if (other.gameObject.name == "Vertushka_1")
+            if (other.gameObject.name == "Vertushka-1_1")
             {
                 string lastChar = other.gameObject.name.Substring(other.gameObject.name.Length - 1);
                 Task.score += Convert.ToInt32(lastChar);
@@ -88,47 +93,47 @@ public class ChekComponents : MonoBehaviour
 
         if (Task.task2 == true)
         {
-            if (other.gameObject.name == "GPU_1")
+            if (other.gameObject.name == "GTX_1050TI_1")
             {
                 Task.score += 1;
             }
 
-            if (other.gameObject.name == "CPU_1")
+            if (other.gameObject.name == "I3-10100F_1")
             {
                 Task.score += 1;
             }
 
-            if (other.gameObject.name == "DDR4_1")
+            if (other.gameObject.name == "DDR4_4gb_1")
             {
                 Task.score += 1;
             }
 
-            if (other.gameObject.name == "SSD_1" || other.gameObject.name == "HDD_1")
+            if (other.gameObject.name == "SSD_1" || other.gameObject.name == "HDD_1tb_1")
             {
                 Task.score += 1;
             }
 
-            if (other.gameObject.name == "PSU_1")
+            if (other.gameObject.name == "PSU_300W_1")
             {
                 Task.score += 1;
             }
 
-            if (other.gameObject.name == "LGA_1")
+            if (other.gameObject.name == "LGA_1700_1")
             {
                 Task.score += 1;
             }
 
-            if (other.gameObject.name == "Stenka_1")
+            if (other.gameObject.name == "Stenka_Ñlosed_1")
             {
                 Task.score += 1;
             }
 
-            if (other.gameObject.name == "Culler_1")
+            if (other.gameObject.name == "Culler_TDP120w_1")
             {
                 Task.score += 1;
             }
 
-            if (other.gameObject.name == "Vertushka_1")
+            if (other.gameObject.name == "Vertushka-1_1")
             {
                 Task.score += 1;
             }
@@ -136,47 +141,47 @@ public class ChekComponents : MonoBehaviour
 
         if (Task.task3 == true)
         {
-            if (other.gameObject.name == "GPU_1")
+            if (other.gameObject.name == "GTX_1050TI_1")
             {
                 Task.score += 1;
             }
 
-            if (other.gameObject.name == "CPU_1")
+            if (other.gameObject.name == "I3-10100F_1")
             {
                 Task.score += 1;
             }
 
-            if (other.gameObject.name == "DDR4_1")
+            if (other.gameObject.name == "DDR4_4gb_1")
             {
                 Task.score += 1;
             }
 
-            if (other.gameObject.name == "SSD_1" || other.gameObject.name == "HDD_1")
+            if (other.gameObject.name == "SSD_1" || other.gameObject.name == "HDD_1tb_1")
             {
                 Task.score += 1;
             }
 
-            if (other.gameObject.name == "PSU_1")
+            if (other.gameObject.name == "PSU_300W_1")
             {
                 Task.score += 1;
             }
 
-            if (other.gameObject.name == "LGA_1")
+            if (other.gameObject.name == "LGA_1700_1")
             {
                 Task.score += 1;
             }
 
-            if (other.gameObject.name == "Stenka_1")
+            if (other.gameObject.name == "Stenka_Ñlosed_1")
             {
                 Task.score += 1;
             }
 
-            if (other.gameObject.name == "Culler_1")
+            if (other.gameObject.name == "Culler_TDP120w_1")
             {
                 Task.score += 1;
             }
 
-            if (other.gameObject.name == "Vertushka_1")
+            if (other.gameObject.name == "Vertushka-1_1")
             {
                 Task.score += 1;
             }

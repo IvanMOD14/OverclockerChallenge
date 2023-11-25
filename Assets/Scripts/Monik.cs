@@ -8,6 +8,8 @@ public class Monik : MonoBehaviour
     public Camera camera1;
     public Camera camera2;
 
+    public GameObject canvas;
+
     public GameObject task1;
     public GameObject task2;
     public GameObject task3;
@@ -25,6 +27,7 @@ public class Monik : MonoBehaviour
         camera1.enabled = true;
         camera2.enabled = false;
         pointer.SetActive(true);
+        canvas.SetActive(true);
     }
 
     public void ExitTask()
