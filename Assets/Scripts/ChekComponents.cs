@@ -8,6 +8,7 @@ using UnityEngine.SocialPlatforms.Impl;
 public class ChekComponents : MonoBehaviour
 {
     int tr;
+    bool chek;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -33,7 +34,8 @@ public class ChekComponents : MonoBehaviour
             {
                 string lastChar = other.gameObject.name.Substring(other.gameObject.name.Length - 1);
                 Task.score += Convert.ToInt32(lastChar);
-                Task.AllComponent += 1;
+                Task.AllComponent += Convert.ToInt32(lastChar);
+
             }
 
             if (other.gameObject.name == "SSD_1" || other.gameObject.name == "HDD_1")
@@ -76,6 +78,11 @@ public class ChekComponents : MonoBehaviour
                 string lastChar = other.gameObject.name.Substring(other.gameObject.name.Length - 1);
                 Task.score += Convert.ToInt32(lastChar);
                 Task.AllComponent += 1;
+            }
+
+            if (Task.score >= 8 & Task.AllComponent >= 9)
+            {
+                chek = true;
             }
         }
 
@@ -177,5 +184,13 @@ public class ChekComponents : MonoBehaviour
 
         tr = Task.score;
         Debug.Log(tr);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (chek == true)
+        {
+            Destroy(other.gameObject);
+        }
     }
 }

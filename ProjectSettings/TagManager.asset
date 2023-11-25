@@ -21,6 +21,7 @@ TagManager:
   - Stenka
   - TableCorpus
   - door
+  - Pol
   layers:
   - Default
   - TransparentFX

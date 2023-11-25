@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class MousController : MonoBehaviour
@@ -11,20 +14,25 @@ public class MousController : MonoBehaviour
 
     public float sens = 200f;
     public float rast = 10f;
-    public int maney = 100;
+    public static int maney = 400;
     
     public Transform pointer;
     public GameObject pointerObject;
     private GameObject item;
     private bool chek = false;
     private bool chekHand = false;
+    private int number;
 
     public Camera camera1;
     public Camera camera2;
 
+    public Text textManey;
+
     public GameObject door;
 
     bool buttonClik;
+
+    public static bool payComponent;
 
     void Start()
     {
@@ -49,6 +57,8 @@ public class MousController : MonoBehaviour
         Debug.DrawRay(transform.position, transform.forward * rast, Color.yellow);
 
         RaycastHit hit;
+
+        textManey.text = maney.ToString();
         
         if (buttonClik == true)
         {
@@ -323,6 +333,28 @@ public class MousController : MonoBehaviour
                     Debug.Log(item.tag);
                 }
 
+                else if (hit.collider.CompareTag("Pol") & chekHand == true & item.name != "Stenka_1" & item.name != "Corpus")
+                {
+                    item.transform.parent = hit.collider.gameObject.transform;
+                    float x = hit.collider.gameObject.transform.localScale.x;
+                    float y = hit.collider.gameObject.transform.localScale.y;
+                    float z = hit.collider.gameObject.transform.localScale.z;
+                    item.transform.localScale = new Vector3(0.01f / x, 0.01f / y, 0.01f / z);
+                    item.GetComponent<Rigidbody>().isKinematic = true;
+                    item.GetComponent<Collider>().isTrigger = false;
+                    //item.transform.position = hit.collider.gameObject.transform.position;
+
+                    Vector3 surfacePoint = hit.point;
+                    Vector3 surfaceNormal = hit.normal;
+                    item.transform.position = surfacePoint;
+                    Quaternion surfaceRotation = Quaternion.FromToRotation(item.transform.up, surfaceNormal);
+                    item.transform.rotation = surfaceRotation * item.transform.rotation;
+
+                    //item.transform.position = hit.point + Vector3.up * 0.1f;
+                    chekHand = false;
+                    Debug.Log(item.tag);
+                }
+
                 else if (hit.collider.CompareTag("Table") & chekHand == true & item.name == "Stenka_1")
                 {
                     item.transform.parent = hit.collider.gameObject.transform;
@@ -345,11 +377,160 @@ public class MousController : MonoBehaviour
                     Debug.Log(item.tag);
                 }
 
-                if (hit.collider.CompareTag("Pay") & maney >= 60)
+                if (hit.collider.CompareTag("Pay") & item.gameObject.tag == "PickupPay")
                 {
-                    item.tag = "Pickup";
-                    maney -= 50;
-                    Debug.Log(item.tag);
+                    if (item.gameObject.name == "GPU_1" & item.gameObject.name == "GPU_2")
+                    {
+                        string lastChar = item.gameObject.name.Substring(item.gameObject.name.Length - 1);
+                        number = Convert.ToInt32(lastChar);
+                        if (number == 1 & maney >= 300)
+                        {
+                            maney -= 300;
+                            item.gameObject.tag = "Pickup";
+                        }
+
+                        if (number == 2 & maney >= 400)
+                        {
+                            maney -= 400;
+                            item.gameObject.tag = "Pickup";
+                        }
+                    }
+
+                    if (item.gameObject.name == "CPU_1" & item.gameObject.name == "CPU_2")
+                    {
+                        string lastChar = item.gameObject.name.Substring(item.gameObject.name.Length - 1);
+                        number = Convert.ToInt32(lastChar);
+                        if (number == 1 & maney >= 100)
+                        {
+                            maney -= 100;
+                            item.gameObject.tag = "Pickup";
+                        }
+
+                        if (number == 2 & maney >= 200)
+                        {
+                            maney -= 200;
+                            item.gameObject.tag = "Pickup";
+                        }
+                    }
+
+                    if (item.gameObject.name == "DDR4_1" & item.gameObject.name == "DDR4_2")
+                    {
+                        string lastChar = item.gameObject.name.Substring(item.gameObject.name.Length - 1);
+                        number = Convert.ToInt32(lastChar);
+                        if (number == 1 & maney >= 50)
+                        {
+                            maney -= 50;
+                            item.gameObject.tag = "Pickup";
+                        }
+
+                        if (number == 2 & maney >= 80)
+                        {
+                            maney -= 80;
+                            item.gameObject.tag = "Pickup";
+                        }
+                    }
+
+                    if (item.gameObject.name == "SSD_1" || item.gameObject.name == "HDD_1")
+                    {
+                        string lastChar = item.gameObject.name.Substring(item.gameObject.name.Length - 1);
+                        number = Convert.ToInt32(lastChar);
+                        if (number == 1 & maney >= 60)
+                        {
+                            maney -= 60;
+                            item.gameObject.tag = "Pickup";
+                        }
+
+                        if (number == 2 & maney >= 90)
+                        {
+                            maney -= 90;
+                            item.gameObject.tag = "Pickup";
+                        }
+                    }
+
+                    if (item.gameObject.name == "PSU_1" & item.gameObject.name == "PSU_2")
+                    {
+                        string lastChar = item.gameObject.name.Substring(item.gameObject.name.Length - 1);
+                        number = Convert.ToInt32(lastChar);
+                        if (number == 1 & maney >= 120)
+                        {
+                            maney -= 120;
+                            item.gameObject.tag = "Pickup";
+                        }
+
+                        if (number == 2 & maney >= 180)
+                        {
+                            maney -= 180;
+                            item.gameObject.tag = "Pickup";
+                        }
+                    }
+
+                    if (item.gameObject.name == "LGA_1" & item.gameObject.name == "LGA_2")
+                    {
+                        string lastChar = item.gameObject.name.Substring(item.gameObject.name.Length - 1);
+                        number = Convert.ToInt32(lastChar);
+                        if (number == 1 & maney >= 90)
+                        {
+                            maney -= 90;
+                            item.gameObject.tag = "Pickup";
+                        }
+
+                        if (number == 2 & maney >= 140)
+                        {
+                            maney -= 140;
+                            item.gameObject.tag = "Pickup";
+                        }
+                    }
+
+                    if (item.gameObject.name == "Corpus_1" & item.gameObject.name == "Corpus_2")
+                    {
+                        string lastChar = item.gameObject.name.Substring(item.gameObject.name.Length - 1);
+                        number = Convert.ToInt32(lastChar);
+                        if (number == 1 & maney >= 70)
+                        {
+                            maney -= 70;
+                            item.gameObject.tag = "Pickup";
+                        }
+
+                        if (number == 2 & maney >= 100)
+                        {
+                            maney -= 100;
+                            item.gameObject.tag = "Pickup";
+                        }
+                    }
+
+                    if (item.gameObject.name == "Culler_1" & item.gameObject.name == "Culler_2")
+                    {
+                        string lastChar = item.gameObject.name.Substring(item.gameObject.name.Length - 1);
+                        number = Convert.ToInt32(lastChar);
+                        if (number == 1 & maney >= 30)
+                        {
+                            maney -= 30;
+                            item.gameObject.tag = "Pickup";
+                        }
+
+                        if (number == 2 & maney >= 50)
+                        {
+                            maney -= 50;
+                            item.gameObject.tag = "Pickup";
+                        }
+                    }
+
+                    if (item.gameObject.name == "Vertushka_1" & item.gameObject.name == "Vertushka_2")
+                    {
+                        string lastChar = item.gameObject.name.Substring(item.gameObject.name.Length - 1);
+                        number = Convert.ToInt32(lastChar);
+                        if (number == 1 & maney >= 20)
+                        {
+                            maney -= 20;
+                            item.gameObject.tag = "Pickup";
+                        }
+
+                        if (number == 2 & maney >= 35)
+                        {
+                            maney -= 35;
+                            item.gameObject.tag = "Pickup";
+                        }
+                    }
                 }
 
                 else

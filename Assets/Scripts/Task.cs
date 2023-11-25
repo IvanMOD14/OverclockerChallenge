@@ -36,10 +36,14 @@ public class Task : MonoBehaviour
 
     private void Update()
     {
-        if (Task.score >= 8 & AllComponent >= 9)
+        if (score >= 8 & AllComponent >= 9)
         {
             Task_1.SetActive(false);
+            task1 = false;
             Monik.startTask1 = 2;
+            MousController.maney += 1000;
+            AllComponent = 0;
+            score = 0;
         }
     }
 }
