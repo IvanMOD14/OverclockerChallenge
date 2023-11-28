@@ -46,14 +46,15 @@ public class Task : MonoBehaviour
             score = 0;
         }
 
-        if (score >= 14 & AllComponent >= 9 & task2 == true & task1 == false)
+        if (score >= 16 & AllComponent >= 9 & task2 == true & task1 == false)
         {
-            Task_1.SetActive(false);
-            task1 = false;
-            Monik.startTask1 = 2;
+            Task_2.SetActive(false);
+            task2 = false;
+            Monik.startTask2 = 2;
             MousController.maney += 2000;
             AllComponent = 0;
             score = 0;
+            FindObjectOfType<ChengImage>().EndVideo();
         }
     }
 }

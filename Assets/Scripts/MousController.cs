@@ -169,7 +169,7 @@ public class MousController : MonoBehaviour
                     Debug.Log(item.tag);
                 }
 
-                if (hit.collider.CompareTag("Materinka") & chekHand == true & item.tag != "PickupPay" & item.name == "LGA_1700_1700_1")
+                if (hit.collider.CompareTag("Materinka") & chekHand == true & item.tag != "PickupPay" & (item.name == "LGA_1200_1" || item.name == "LGA_1700_2"))
                 {
                     item.transform.parent = hit.collider.gameObject.transform;
                     item.GetComponent<Rigidbody>().isKinematic = true;
@@ -187,7 +187,7 @@ public class MousController : MonoBehaviour
                     Debug.Log(item.tag);
                 }
 
-                if (hit.collider.CompareTag("Stenka") & chekHand == true & item.tag != "PickupPay" & item.name == "Stenka_Ñlosed_1")
+                if (hit.collider.CompareTag("Stenka") & chekHand == true & item.tag != "PickupPay" & (item.name == "Stenka_Ñlosed_1" || item.name == "Stenka_Open_2"))
                 {
                     item.transform.parent = hit.collider.gameObject.transform;
                     item.GetComponent<Rigidbody>().isKinematic = true;
@@ -200,7 +200,7 @@ public class MousController : MonoBehaviour
                     Debug.Log(item.tag);
                 }
 
-                if (hit.collider.CompareTag("GPU") & chekHand == true & item.tag != "PickupPay" & item.name == "GTX_1050TI_1" || item.name == "GPU_2")
+                if (hit.collider.CompareTag("GPU") & chekHand == true & item.tag != "PickupPay" & (item.name == "GTX_1050TI_1" || item.name == "RTX_3090_2"))
                 {
                     item.transform.parent = hit.collider.gameObject.transform;
                     item.GetComponent<Rigidbody>().isKinematic = true;
@@ -213,7 +213,7 @@ public class MousController : MonoBehaviour
                     Debug.Log(item.tag);
                 }
 
-                if (hit.collider.CompareTag("CPU") & chekHand == true & item.tag != "PickupPay" & item.name == "I3-10100F_1")
+                if (hit.collider.CompareTag("CPU") & chekHand == true & item.tag != "PickupPay" & (item.name == "I3-10100F_1" || item.name == "I7-12700F_2"))
                 {
                     item.transform.parent = hit.collider.gameObject.transform;
                     item.GetComponent<Rigidbody>().isKinematic = true;
@@ -226,7 +226,7 @@ public class MousController : MonoBehaviour
                     Debug.Log(item.tag);
                 }
 
-                if (hit.collider.CompareTag("CPU") & chekHand == true & item.tag != "PickupPay" & item.name == "Culler_TDP120w_1")
+                if ((hit.collider.name == "I3-10100F_1" || hit.collider.name == "I7-12700F_2") & chekHand == true & item.tag != "PickupPay" & (item.name == "Culler_TDP120w_1" || item.name == "Culler_TDP180w_2"))
                 {
                     item.transform.parent = hit.collider.gameObject.transform;
                     item.GetComponent<Rigidbody>().isKinematic = true;
@@ -239,7 +239,7 @@ public class MousController : MonoBehaviour
                     Debug.Log(item.tag);
                 }
                 
-                if (hit.collider.CompareTag("DDR") & chekHand == true & item.tag != "PickupPay" & item.name == "DDR4_4gb_1")
+                if (hit.collider.CompareTag("DDR") & chekHand == true & item.tag != "PickupPay" & (item.name == "DDR4_4gb_1" || item.name == "DDR4_8gb_2" || item.name == "DDR4_16gb_3"))
                 {
                     item.transform.parent = hit.collider.gameObject.transform;
                     item.GetComponent<Rigidbody>().isKinematic = true;
@@ -252,7 +252,7 @@ public class MousController : MonoBehaviour
                     Debug.Log(item.tag);
                 }
 
-                if (hit.collider.CompareTag("PSU") & chekHand == true & item.tag != "PickupPay" & item.name == "PSU_300W_1")
+                if (hit.collider.CompareTag("PSU") & chekHand == true & item.tag != "PickupPay" & (item.name == "PSU_300W_1" || item.name == "PSU_600W_2"))
                 {
                     item.transform.parent = hit.collider.gameObject.transform;
                     item.GetComponent<Rigidbody>().isKinematic = true;
@@ -269,7 +269,7 @@ public class MousController : MonoBehaviour
                     Debug.Log(item.tag);
                 }
 
-                if (hit.collider.CompareTag("Vertushka") & chekHand == true & item.tag != "PickupPay" & item.name == "Vertushka-1_1")
+                if (hit.collider.CompareTag("Vertushka") & chekHand == true & item.tag != "PickupPay" & (item.name == "Vertushka-1_1" || item.name == "Vertushka-2_2"))
                 {
                     item.transform.parent = hit.collider.gameObject.transform;
                     item.GetComponent<Rigidbody>().isKinematic = true;
@@ -286,7 +286,7 @@ public class MousController : MonoBehaviour
                     Debug.Log(item.tag);
                 }
 
-                if (hit.collider.CompareTag("HDD") & chekHand == true & item.tag != "PickupPay" & item.name == "HDD_1tb_1")
+                if (hit.collider.CompareTag("HDD") & chekHand == true & item.tag != "PickupPay" & (item.name == "HDD_1tb_1" || item.name == "SSD_500gb_1"))
                 {
                     item.transform.parent = hit.collider.gameObject.transform;
                     item.GetComponent<Rigidbody>().isKinematic = true;
@@ -303,7 +303,7 @@ public class MousController : MonoBehaviour
                     Debug.Log(item.tag);
                 }
 
-                if (hit.collider.CompareTag("TableCorpus") & chekHand == true & item.tag != "PickupPay" & item.name == "Corpus")
+                if (hit.collider.CompareTag("TableCorpus") & chekHand == true & item.tag != "PickupPay" & (item.name == "Corpus_1" || item.name == "Corpus_2"))
                 {
                     item.transform.parent = hit.collider.gameObject.transform;
                     item.GetComponent<Rigidbody>().isKinematic = true;
@@ -326,7 +326,7 @@ public class MousController : MonoBehaviour
                     Debug.Log(item.tag);
                 }
 
-                else if (hit.collider.CompareTag("Table") & chekHand == true & item.name != "Stenka_Ñlosed_1" & item.name != "Corpus")
+                else if (hit.collider.CompareTag("Table") & chekHand == true & (item.name != "Stenka_Ñlosed_1" & item.name != "Stenka_Open_2") & (item.name != "Corpus_1" & item.name != "Corpus_2"))
                 {
                     item.transform.parent = hit.collider.gameObject.transform;
                     float x = hit.collider.gameObject.transform.localScale.x;
@@ -348,7 +348,7 @@ public class MousController : MonoBehaviour
                     Debug.Log(item.tag);
                 }
 
-                else if (hit.collider.CompareTag("Pol") & chekHand == true & item.name != "Stenka_Ñlosed_1" & item.name != "Corpus" & hit.collider.transform.localScale == new Vector3(0.01f, 0.01f, 0.01f))
+                else if (hit.collider.CompareTag("Pol") & chekHand == true & (item.name != "Stenka_Ñlosed_1" & item.name != "Stenka_Open_2") & (item.name != "Corpus_1" & item.name != "Corpus_2") & hit.collider.transform.localScale == new Vector3(0.01f, 0.01f, 0.01f))
                 {
                     item.transform.parent = hit.collider.gameObject.transform;
                     float x = hit.collider.gameObject.transform.localScale.x;
@@ -370,7 +370,7 @@ public class MousController : MonoBehaviour
                     Debug.Log(item.tag);
                 }
 
-                else if (hit.collider.CompareTag("Pol") & chekHand == true & item.name != "Stenka_Ñlosed_1" & item.name != "Corpus" & hit.collider.transform.localScale == new Vector3(1f, 1f, 1f))
+                else if (hit.collider.CompareTag("Pol") & chekHand == true & (item.name != "Stenka_Ñlosed_1" & item.name != "Stenka_Open_2") & (item.name != "Corpus_1" & item.name != "Corpus_2") & hit.collider.transform.localScale == new Vector3(1f, 1f, 1f))
                 {
                     item.transform.parent = hit.collider.gameObject.transform;
                     float x = hit.collider.gameObject.transform.localScale.x;
@@ -392,7 +392,7 @@ public class MousController : MonoBehaviour
                     Debug.Log(item.tag);
                 }
 
-                else if (hit.collider.CompareTag("Table") & chekHand == true & item.name == "Stenka_Ñlosed_1")
+                else if (hit.collider.CompareTag("Table") & chekHand == true & (item.name == "Stenka_Ñlosed_1" || item.name == "Stenka_Open_2"))
                 {
                     item.transform.parent = hit.collider.gameObject.transform;
                     float x = hit.collider.gameObject.transform.localScale.x;
@@ -416,7 +416,7 @@ public class MousController : MonoBehaviour
 
                 if (hit.collider.CompareTag("Pay") & item.gameObject.tag == "PickupPay")
                 {
-                    if (item.gameObject.name == "GTX_1050TI_1" || item.gameObject.name == "GPU_2")
+                    if (item.gameObject.name == "GTX_1050TI_1" || item.gameObject.name == "RTX_3090_2")
                     {
                         string lastChar = item.gameObject.name.Substring(item.gameObject.name.Length - 1);
                         number = Convert.ToInt32(lastChar);
@@ -433,7 +433,7 @@ public class MousController : MonoBehaviour
                         }
                     }
 
-                    if (item.gameObject.name == "I3-10100F_1" || item.gameObject.name == "CPU_2")
+                    if (item.gameObject.name == "I3-10100F_1" || item.gameObject.name == "I7-12700F_2")
                     {
                         string lastChar = item.gameObject.name.Substring(item.gameObject.name.Length - 1);
                         number = Convert.ToInt32(lastChar);
@@ -450,7 +450,7 @@ public class MousController : MonoBehaviour
                         }
                     }
 
-                    if (item.gameObject.name == "DDR4_4gb_1" || item.gameObject.name == "DDR4_2")
+                    if (item.name == "DDR4_4gb_1" || item.name == "DDR4_8gb_2" || item.name == "DDR4_16gb_3")
                     {
                         string lastChar = item.gameObject.name.Substring(item.gameObject.name.Length - 1);
                         number = Convert.ToInt32(lastChar);
@@ -467,7 +467,7 @@ public class MousController : MonoBehaviour
                         }
                     }
 
-                    if (item.gameObject.name == "SSD_1" || item.gameObject.name == "HDD_1tb_1")
+                    if (item.gameObject.name == "SSD_500gb_1" || item.gameObject.name == "HDD_1tb_1")
                     {
                         string lastChar = item.gameObject.name.Substring(item.gameObject.name.Length - 1);
                         number = Convert.ToInt32(lastChar);
@@ -484,7 +484,7 @@ public class MousController : MonoBehaviour
                         }
                     }
 
-                    if (item.gameObject.name == "PSU_300W_1" || item.gameObject.name == "PSU_2")
+                    if (item.gameObject.name == "PSU_300W_1" || item.gameObject.name == "PSU_600W2")
                     {
                         string lastChar = item.gameObject.name.Substring(item.gameObject.name.Length - 1);
                         number = Convert.ToInt32(lastChar);
@@ -501,7 +501,7 @@ public class MousController : MonoBehaviour
                         }
                     }
 
-                    if (item.gameObject.name == "LGA_1700_1700_1" || item.gameObject.name == "LGA_2")
+                    if (item.gameObject.name == "LGA_1200_1" || item.gameObject.name == "LGA_1700_2")
                     {
                         string lastChar = item.gameObject.name.Substring(item.gameObject.name.Length - 1);
                         number = Convert.ToInt32(lastChar);
@@ -535,7 +535,7 @@ public class MousController : MonoBehaviour
                         }
                     }
 
-                    if (item.gameObject.name == "Culler_TDP120w_1" || item.gameObject.name == "Culler_2")
+                    if (item.gameObject.name == "Culler_TDP120w_1" || item.gameObject.name == "Culler_TDP180w_2")
                     {
                         string lastChar = item.gameObject.name.Substring(item.gameObject.name.Length - 1);
                         number = Convert.ToInt32(lastChar);
@@ -552,7 +552,7 @@ public class MousController : MonoBehaviour
                         }
                     }
 
-                    if (item.gameObject.name == "Vertushka-1_1" || item.gameObject.name == "Vertushka_2")
+                    if (item.gameObject.name == "Vertushka-1_1" || item.gameObject.name == "Vertushka-2_2")
                     {
                         string lastChar = item.gameObject.name.Substring(item.gameObject.name.Length - 1);
                         number = Convert.ToInt32(lastChar);

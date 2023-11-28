@@ -21,6 +21,12 @@ public class SceneMeneger : MonoBehaviour
 
     public void StartGame()
     {
+        FindObjectOfType<VideoStart>().StartVideo();
+        Invoke("loadGame", 2);
+    }
+
+    void loadGame()
+    {
         SceneManager.LoadScene(4);
     }
 
