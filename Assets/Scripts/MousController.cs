@@ -32,6 +32,8 @@ public class MousController : MonoBehaviour
 
     GameObject door;
 
+    public GameObject tableCorpus;
+
     bool buttonClik;
 
     public static bool payComponent;
@@ -95,6 +97,31 @@ public class MousController : MonoBehaviour
                     chek = true;
                     item = hit.collider.gameObject;
 
+                    Debug.Log(item.tag);
+                }
+
+                if (hit.collider.CompareTag("ChekTableCorpus") & item.name == "Corpus_1")
+                {
+                    tableCorpus.GetComponent<BoxCollider>().enabled = true;
+
+                    item.transform.parent = hit.collider.gameObject.transform;
+                    item.GetComponent<Rigidbody>().isKinematic = true;
+                    item.GetComponent<Collider>().isTrigger = false;
+                    item.transform.position = hit.collider.gameObject.transform.position;
+
+                    float x = hit.collider.gameObject.transform.localScale.x;
+                    float y = hit.collider.gameObject.transform.localScale.y;
+                    float z = hit.collider.gameObject.transform.localScale.z;
+                    item.transform.localScale = new Vector3(1f / x, 1f / y, 1f / z);
+                    item.transform.localPosition = new Vector3(0, 0.42f, 0);
+
+                    Vector3 surfaceNormal = hit.normal;
+                    Quaternion surfaceRotation = Quaternion.FromToRotation(item.transform.up, surfaceNormal);
+                    item.transform.rotation = surfaceRotation * item.transform.rotation;
+                    item.transform.rotation = new Quaternion(0, 90, 0, 90);
+
+                    //item.transform.position = hit.point + Vector3.up * 0.1f;
+                    chekHand = false;
                     Debug.Log(item.tag);
                 }
 
@@ -303,7 +330,7 @@ public class MousController : MonoBehaviour
                     Debug.Log(item.tag);
                 }
 
-                if (hit.collider.CompareTag("TableCorpus") & chekHand == true & item.tag != "PickupPay" & (item.name == "Corpus_1" || item.name == "Corpus_2"))
+                /*if (hit.collider.CompareTag("TableCorpus") & chekHand == true & item.tag != "PickupPay" & (item.name == "Corpus_1" || item.name == "Corpus_2"))
                 {
                     item.transform.parent = hit.collider.gameObject.transform;
                     item.GetComponent<Rigidbody>().isKinematic = true;
@@ -324,7 +351,7 @@ public class MousController : MonoBehaviour
                     //item.transform.position = hit.point + Vector3.up * 0.1f;
                     chekHand = false;
                     Debug.Log(item.tag);
-                }
+                }*/
 
                 else if (hit.collider.CompareTag("Table") & chekHand == true & (item.name != "Stenka_Ñlosed_1" & item.name != "Stenka_Open_2") & (item.name != "Corpus_1" & item.name != "Corpus_2"))
                 {
@@ -463,6 +490,12 @@ public class MousController : MonoBehaviour
                         if (number == 2 & maney >= 80)
                         {
                             maney -= 80;
+                            item.gameObject.tag = "Pickup";
+                        }
+
+                        if (number == 3 & maney >= 120)
+                        {
+                            maney -= 120;
                             item.gameObject.tag = "Pickup";
                         }
                     }

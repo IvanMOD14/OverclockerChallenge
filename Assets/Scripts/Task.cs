@@ -41,7 +41,7 @@ public class Task : MonoBehaviour
             Task_1.SetActive(false);
             task1 = false;
             Monik.startTask1 = 2;
-            MousController.maney += 1500;
+            MousController.maney += 1800;
             AllComponent = 0;
             score = 0;
         }

@@ -22,6 +22,7 @@ TagManager:
   - TableCorpus
   - door
   - Pol
+  - ChekTableCorpus
   layers:
   - Default
   - TransparentFX
